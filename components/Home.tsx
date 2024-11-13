@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Award, BookOpen, Cloud, Database } from 'lucide-react'
 import { Button } from "@/components/ui/button"
+import {ProjectsSectionComponent} from './projects-section'
 
 export function Homepage() {
   const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'achievements', 'skills']
+      const sections = ['home', 'about', 'achievements', 'skills','Projects']
       const currentSection = sections.find(section => {
         const element = document.getElementById(section)
         if (element) {
@@ -33,7 +34,7 @@ export function Homepage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-90 shadow-md">
         <nav className="container mx-auto px-6 py-3">
           <ul className="flex justify-center space-x-8">
-            {['Home', 'About', 'Achievements', 'Skills'].map((item) => (
+            {['Home', 'About', 'Achievements', 'Skills','Project'].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
@@ -214,6 +215,9 @@ export function Homepage() {
           </div>
         </section>
       </main>
+      
+      <div id='project'></div>
+      <ProjectsSectionComponent />
 
       <footer className="bg-primary text-primary-foreground py-8">
         <div className="container mx-auto px-6 text-center">
